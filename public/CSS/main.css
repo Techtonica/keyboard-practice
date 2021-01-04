@@ -15,6 +15,19 @@
   width: 800px;
 }
 
+.center-column {
+  width: 690px;
+}
+
+.log-button {
+  border-radius: 5px;
+  font-size:  12px;
+  padding: 3px 10px;
+  text-align: center;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
 body {
   font: 71%/1.5 Verdana, Sans-Serif;
   color: #37474F;
@@ -226,4 +239,28 @@ div .arrows{
 #hint-checkbox-container #show-hint {
   height: 1rem;
   width: 1rem;
+}
+
+#account-info {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 0.8rem;
+  margin: -37.5px 0px 32.5px 0px;
+}
+
+#login-button {
+  color: #28a7c5;
+  background-color: #ffffff;
+  border: 1px solid #28a7c5;
+}
+
+#logout-button {
+  color: #ffffff;
+  background-color: #28a7c5;
+  border: 1px solid #28a7c5;
+}
+
+#login-indicator {
+  margin: 0rem 0.5rem;
 }
