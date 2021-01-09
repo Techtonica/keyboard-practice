@@ -4,10 +4,12 @@
   "description": "[Techtonica](https://techtonica.org) is a nonprofit that provides free tech training with stipends and job placement to women and non-binary adults with low incomes.",
   "main": "app.js",
   "scripts": {
-    "start": "cross-env npm run dev",
+    "start": "nf start",
     "start:prod": "cross-env NODE_ENV=production node app.js",
     "dev": "cross-env NODE_ENV=development nodemon",
-    "test": "npx jasmine"
+    "test": "npx jasmine",
+    "build": "webpack",
+    "webpack:dev": "cross-env NODE_ENV=development webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
     "express": "^4.17.1",
     "express-openid-connect": "^2.0.0",
     "http-server": "^0.12.3",
+    "keymaster": "^1.6.2",
     "morgan": "^1.9.1",
     "mysql": "^2.17.1",
     "path": "^0.12.7",
@@ -40,10 +43,13 @@
     "connect-session-sequelize": "^7.0.3",
     "cross-env": "^7.0.2",
     "express-session": "^1.17.1",
+    "foreman": "^3.0.1",
     "jasmine": "^3.6.2",
     "nodemon": "^2.0.1",
     "supertest": "^5.0.0",
-    "supertest-session": "^4.1.0"
+    "supertest-session": "^4.1.0",
+    "webpack": "^5.12.1",
+    "webpack-cli": "^4.3.1"
   },
   "nodemonConfig": {
     "execMap": {

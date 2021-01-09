@@ -3,9 +3,9 @@ const path = require("path");
 const morgan = require("morgan");
 const express = require("express");
 const bodyParser = require("body-parser");
-const { setupAuth } = require("./JS/auth-setup");
-const { connectToDb } = require("./JS/orm");
-const { port } = require("./JS/config");
+const { setupAuth } = require("./src/server/auth-setup");
+const { connectToDb } = require("./src/server/orm");
+const { port } = require("./src/server/config");
 const favicon = require("serve-favicon");
 
 const app = express();
@@ -16,12 +16,13 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static("public"));
+app.use("/js", express.static(path.resolve("dist")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(favicon(__dirname + "/public/images/favicon.ico"));
 
 setupAuth(app);
-const routes = require("./routes/routes.js");
+const routes = require("./src/server/routes");
 app.use("/", routes);
 
 app.use((_, res) => {

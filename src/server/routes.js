@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { routeRequiresSignedIn, getCurrentUserId } = require("../JS/auth-setup");
+const { routeRequiresSignedIn, getCurrentUserId } = require("./auth-setup");
 
-const { UserAnswers } = require("../JS/orm");
+const { UserAnswers } = require("./orm");
 
 const ANSWER_HISTORY_LIMIT = 3;
 
@@ -48,7 +48,10 @@ router.post("/user/answers/question/:questionNumber", (req, res, next) => {
 });
 router.get("/user/answers/question/:questionNumber", (req, res) => {
   UserAnswers.findAll({
-    where: { question_number: req.params.questionNumber, user_id: getCurrentUserId(res) },
+    where: {
+      question_number: req.params.questionNumber,
+      user_id: getCurrentUserId(res),
+    },
     order: [["created_at", "DESC"]],
     limit: ANSWER_HISTORY_LIMIT,
   })
